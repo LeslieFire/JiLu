@@ -11,7 +11,7 @@ public class DbAdapter {
 	private static final String TAG = "DbAdapper";
 	
 	//set data file name
-	private static final String DATABASE_NAME = "iTracks.db";
+	private static final String DATABASE_NAME = "jiLu.db";
 	private static final int DATABASE_VERSION = 1;
 	public class DatabaseHelper extends SQLiteOpenHelper{
 		public DatabaseHelper(Context context){
@@ -32,7 +32,7 @@ public class DbAdapter {
 					+ TrackDbAdapter.CREATED + " text, "
 					+ TrackDbAdapter.AVGSPEED + " LONG, "
 					+ TrackDbAdapter.MAXSPEED + " LONG, "
-					+ TrackDbAdapter.UPDATED + " text"
+					+ TrackDbAdapter.UPDATED + " text "
 					+ ");";
 			Log.d(TAG, tracks_sql);
 			
@@ -41,7 +41,7 @@ public class DbAdapter {
 			
 			String locats_sql = "CREATE TABLE " + LocateDbAdapter.TABLE_NAME + " ("
 					+ LocateDbAdapter.ID + " INTEGER primary key autoincrement, "
-					+ LocateDbAdapter.TRACKID + "INEGER not null, "
+					+ LocateDbAdapter.TRACKID + " INEGER not null, "
 					+ LocateDbAdapter.LON + " DOUBLE , "
 					+ LocateDbAdapter.LAT + " DOUBLE , "
 					+ LocateDbAdapter.ALT + " DOUBLE , "

@@ -45,7 +45,7 @@
     <string name="street">街景</string> 
     
    
-   
-   
+    <!-- stop service -->
+    <string name="stop_track">停止记路</string>
     
 </resources>

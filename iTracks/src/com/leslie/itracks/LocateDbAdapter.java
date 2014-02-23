@@ -74,7 +74,7 @@ public class LocateDbAdapter extends DbAdapter{
 	//get all track point of one track
 	public Cursor getTrackAllLocates(int trackId) {
 		return mDb.query(TABLE_NAME, new String[]{ ID, TRACKID, LON, 
-				LAT, ALT, CREATED}, "track_id=?", new String[]{String.valueOf(trackId)}, 
+				LAT, ALT, CREATED}, "track_id", new String[]{String.valueOf(trackId)}, 
 				null, null, "created_at asc");
 	}
  }

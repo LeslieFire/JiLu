@@ -17,6 +17,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Identity;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -42,38 +43,90 @@ import com.leslie.itracks.R.layout;
 public class ShowTrack extends FragmentActivity{
 	private static final String TAG = "ShowTrack";
 	
-	private TrackDbAdapter mDbHelper;
-	private LocateDbAdapter mlcDbHelper;
-	
 	private static final LatLng SYDNEY = new LatLng(-33.87365, 151.20689);
 	private GoogleMap mMap;
-	private float mZoomLevel = 14;
+	private float mZoomLevel;
+	private float mGPSFreqency; //GPS 
+	private String mDefValue = "";
+	private String mStatus = "";
+	
+	
 	private Polyline mMutablePolyline;
 	private PolylineOptions options = new PolylineOptions();
 	private Button mGps;
 	private Button mSat;
 	private Button mTraffic;
 	private Button mStreetview;
+	private Button mStopTrack;
 	private String mDefCaption = "";
 	private LatLng mCurLatLng; 			//current latitude...
-	private Location mCurLocation;		//current location
 	
 	private LocationManager lm;
 	private LocationListener locationListener;
 	
+	private TrackDbAdapter mtDbHelper;
+	private LocateDbAdapter mlcDbHelper;
+	
+	private long rowId;
 	private int track_id;
-	private Long rowId;
-
+			
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.d(TAG, "ShowTrack:onCreate.");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.show_track);
 		
+		findViews();
+		setListeners();
+		openDatabase();
 		setUpMapIfNeeded();
+		startTrackServiceIfNeeded();
 	
 	}
 	
+	private void startTrackServiceIfNeeded() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "ShowTrack::startTrackServiceIfNeeded.");
+		Bundle extras = getIntent().getExtras();
+		mStatus = extras.getString(MainActivity.STATUS);
+		if (mStatus == MainActivity.NEW) {
+			startTrackService();
+		}
+	}
+
+	private void setListeners() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "ShowTrack::setListeners.");
+		mStopTrack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Log.d(TAG, "mStopTrack clicked");
+				stopTrackService();
+			}
+		});
+	}
+
+	private void findViews() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "ShowTrack:findViews.");
+		mStopTrack = (Button) findViewById(R.id.stop_track);		
+	}
+
+	private void openDatabase() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "ShowTrack:openDatabase.");
+		rowId = getIntent().getLongExtra(TrackDbAdapter.KEY_ROWID, 0);
+		mtDbHelper = new TrackDbAdapter(this);
+		mtDbHelper.open();
+		Cursor mCursor = mtDbHelper.getTrack(rowId);
+		track_id = mCursor.getColumnIndex(TrackDbAdapter.ID);
+		mtDbHelper.close();
+		
+		mlcDbHelper = Track.getDbHelper();		
+	}
+
 	@Override
 	public void onResume(){
 		Log.d(TAG, "ShowTrack:onResume.");
@@ -90,7 +143,6 @@ public class ShowTrack extends FragmentActivity{
 					.getMap();
 			// Check if we were successful in obtaining the map.
 			if (mMap != null) {
-//				Log.d(TAG, "ShowTrack:setUpMapIfNeeded, mMap != null");
 				setUpMap();				
 			}	
 		}
@@ -99,20 +151,67 @@ public class ShowTrack extends FragmentActivity{
 	private void setUpMap() {
 		// TODO Auto-generated method stub
 		Log.d(TAG, "ShowTrack:setUpMap.");
+		Bundle extras = getIntent().getExtras();
+		mStatus = extras.getString(MainActivity.STATUS);
 		
-		//location manager to get the information of GPS
-		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		mCurLocation = new Location(lm.getLastKnownLocation(LocationManager.GPS_PROVIDER));
-		mCurLatLng = new LatLng(mCurLocation.getLatitude(), mCurLocation.getLongitude());
-
-		options.add(mCurLatLng);
-		mMap.addMarker(new MarkerOptions().position(mCurLatLng).title("Marker"));
-		mMap.moveCamera(CameraUpdateFactory.newLatLng(mCurLatLng));
-		mMap.animateCamera(CameraUpdateFactory.zoomTo(mZoomLevel));
 		
-		locationListener = new MyLocationListener();
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10*60*1000, 0, locationListener);
+		if (mStatus.equals(MainActivity.SHOW) || mStatus.equals(MainActivity.CONTINUE)) {
+			//TODO:draw the former track
+			Log.d(TAG, mStatus);
+			paintLocates();
+		} 
+		if (mStatus.equals(MainActivity.CONTINUE) || mStatus.equals(MainActivity.NEW)) {
+			//location manager to get the information of GPS
+			try {
+				Log.d(TAG, mStatus);
+				lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+				Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+				
+				//set current location the center of this camera and 
+				//at the same time, save the location to Table
+				//return LatLng
+				mCurLatLng = new LatLng(location.getLatitude(), location.getLongitude());		
+				options.add(mCurLatLng);
+				mMap.addMarker(new MarkerOptions().position(mCurLatLng).title("Marker"));
+				mMap.moveCamera(CameraUpdateFactory.newLatLng(mCurLatLng));
+				
+				//set customer zoom level
+				setZoomLevel();	
+				
+		 		//set update listener  (long)mGPSFreqency*
+				lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 60*1000, 0, new MyLocationListener());
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.toString());
+			}
+		}
+		
+		
 	}
+	
+	private void setZoomLevel() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "ShowTrack:setZoomLevel.");
+		SharedPreferences settings = getSharedPreferences(Setting.SETTING_INFOS, 0);
+		mZoomLevel = Float.parseFloat(settings.getString(Setting.SETTING_MAP, mDefValue));	
+		mGPSFreqency = Float.parseFloat(settings.getString(Setting.SETTING_GPS, mDefValue));
+ 		mMap.animateCamera(CameraUpdateFactory.zoomTo(mZoomLevel));
+	}
+
+//	//set GPS location the center of this camera
+//	public LatLng setCenterAndSave(Location location) {
+//		Log.d(TAG, "ShowTrack:setCenterAndSave.");
+//		mMap.addMarker(new MarkerOptions().position(mCurLatLng).title("Marker"));
+//		mMap.moveCamera(CameraUpdateFactory.newLatLng(mCurLatLng));
+//		//because the service save locations, so this is not needed anymore
+//		//add to Table Locate		
+////		mlcDbHelper.createLocate(track_id, 
+////								location.getLongitude(), 
+////								location.getLatitude(), 
+////								location.getAltitude());
+//		
+//		return new LatLng(location.getLatitude(), location.getLongitude());
+//	}
 	
 	public class MyLocationListener implements LocationListener {
 
@@ -127,12 +226,11 @@ public class ShowTrack extends FragmentActivity{
 						Toast.LENGTH_SHORT).show();
 
 				mCurLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-
-				options.add(mCurLatLng);
-				mMutablePolyline = mMap.addPolyline(options);
-				
 				mMap.addMarker(new MarkerOptions().position(mCurLatLng).title("Marker"));
 				mMap.moveCamera(CameraUpdateFactory.newLatLng(mCurLatLng));
+				
+				options.add(mCurLatLng);
+				mMutablePolyline = mMap.addPolyline(options);				
 			}	
 		}
 
@@ -174,29 +272,70 @@ public class ShowTrack extends FragmentActivity{
 //		
 //	}
 //
-//	private void startTrackService() {
-//		// TODO Auto-generated method stub
-//		Intent intent = new Intent("com.leslie.itracks.START_TRACK_SERVICE");
-//		intent.putExtra(LocateDbAdapter.TRACKID, track_id);
-//		startService(intent);
-//	}
-//	
-//	private void stopTrackService(){
-//		stopService(new Intent("com.leslie.itracks.START_TRACK_SERVICE"));
-//	}
+	private void startTrackService() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "ShowTrack:startTrackService.");
+		Intent intent = new Intent("com.leslie.itracks.START_TRACK_SERVICE");
+		intent.putExtra(LocateDbAdapter.TRACKID, track_id);
+		startService(intent);
+	}
+	
+	private void stopTrackService(){
+		Log.d(TAG, "ShowTrack:stopTrackService.");
+		stopService(new Intent("com.leslie.itracks.START_TRACK_SERVICE"));
+	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Log.d(TAG, "onStop");
+		// mDbHelper.close();
+		//mlcDbHelper.close();
+	}
+	@Override
+    public void onDestroy() {
+		Log.d(TAG, "onDestroy.");
+        super.onDestroy();
+//      stopTrackService();
+    }
 //
-//	private void paintLocates() {
-//		// TODO Auto-generated method stub
-//		mlcDbHelper = new LocateDbAdapter(this);
-//		mlcDbHelper.open();
-//		Cursor mLocatesCursor = mlcDbHelper.getTrackAllLocates(track_id);
-//		startManagingCursor(mLocatesCursor);
-//		Resources resources = getResources();
-//		Overlay overlays = new Overlay(resources
-//				.getDrawable(R.drawable.icon), mLocatesCursor);
-//		mMapView.getOverlays().add(overlays);
-//		mlcDbHelper.close();
-//	}
+	private void paintLocates() {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "show tracks::paintLocates");
+		try {
+			mlcDbHelper = new LocateDbAdapter(this);
+			mlcDbHelper.open();
+			Cursor mLocatesCursor = mlcDbHelper.getTrackAllLocates(track_id);
+			if (!mLocatesCursor.isFirst()) {
+				mLocatesCursor.moveToFirst();
+			}
+			PolylineOptions options = new PolylineOptions();
+			int latColIndex;
+			int lonColIndex;
+			LatLng latLng;
+			for(; !mLocatesCursor.isLast(); mLocatesCursor.moveToNext()){
+				latColIndex = mLocatesCursor.getColumnIndex(LocateDbAdapter.LAT);
+				lonColIndex = mLocatesCursor.getColumnIndex(LocateDbAdapter.LON);
+				latLng = new LatLng(mLocatesCursor.getDouble(latColIndex), 
+						mLocatesCursor.getDouble(lonColIndex));
+				options.add(latLng);
+			}
+				
+			latColIndex = mLocatesCursor.getColumnIndex(LocateDbAdapter.LAT);
+			lonColIndex = mLocatesCursor.getColumnIndex(LocateDbAdapter.LON);
+			latLng = new LatLng(mLocatesCursor.getDouble(latColIndex), 
+					mLocatesCursor.getDouble(lonColIndex));
+			options.add(latLng);
+			
+			mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+			mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}	
+		mMap.addPolyline(options);
+		
+		mlcDbHelper.close();
+	}
 //	protected boolean isRouteDisplayed() {
 //		// TODO Auto-generated method stub
 //		return false;
@@ -218,91 +357,7 @@ public class ShowTrack extends FragmentActivity{
 //		}
 //	}
 //
-//	private void findViews() {
-//		// TODO Auto-generated method stub
-//		Log.d(TAG, "find views");
-//		
-//		//obtain view assit
-//		mMapView = (MapView) findViewById(R.id.mv);
-//		mMapView.setBuiltInZoomControls(true);
-//		
-//		
-//		//set all kinds of buttons
-//		mZin = (Button) findViewById(R.id.zin);
-//		mZout = (Button) findViewById(R.id.zout);
-//		mPanE = (Button) findViewById(R.id.pane);
-//		mPanN = (Button) findViewById(R.id.pann);
-//		mPanW = (Button) findViewById(R.id.panw);
-//		mPanS = (Button) findViewById(R.id.pans);
-//		mGps = (Button) findViewById(R.id.gps);
-//		mSat = (Button) findViewById(R.id.sat);
-//		mTraffic = (Button) findViewById(R.id.traffic);
-//		mStreetview = (Button) findViewById(R.id.streetview);
-//		
-//		//location manager to get the information of GPS 
-//		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//		
-//		locationListener = new MyLocationListener();
-//		
-//		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-//		
-//		
-//		/*all kinds of click listener*/
-//		mZin.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				zoomIn();
-//			}
-//		});
-//		
-//		
-//		mZout.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				zoomOut();
-//			}
-//		});
-//		
-//		mPanE.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				panEast();
-//			}
-//		});
-//		
-//		mPanW.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				panWest();
-//			}
-//		});
-//		
-//		mPanN.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				panNorth();
-//			}
-//		});
-//		
-//		mPanS.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				panSouth();
-//			}
-//		});
-//		
+
 //		mGps.setOnClickListener(new OnClickListener() {
 //			
 //			@Override
@@ -312,183 +367,10 @@ public class ShowTrack extends FragmentActivity{
 //			}
 //		});
 //		
-//		mSat.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				toggleSatellite();
-//			}
-//		});
-//		
-//		mTraffic.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				toggleTraffic();
-//			}
-//		});
-//		
-//		mStreetview.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				toggleStreetView();
-//			}
-//		});
-//	}
-//
-//	public void panEast(){
-//		GeoPoint pt = new GeoPoint(mMapView.getMapCenter().getLatitudeE6(), 
-//				mMapView.getMapCenter().getLongitudeE6()
-//				 + mMapView.getLongitudeSpan() / 4);
-//		mc.setCenter(pt);		
-//	}
+
+
 //	
-//	public void panWest(){
-//		GeoPoint pt = new GeoPoint(mMapView.getMapCenter().getLatitudeE6(), 
-//				mMapView.getMapCenter().getLongitudeE6()
-//				 - mMapView.getLongitudeSpan() / 4);
-//		mc.setCenter(pt);	
-//		
-//	}
-//	
-//	public void panSouth(){
-//		GeoPoint pt = new GeoPoint(mMapView.getMapCenter().getLatitudeE6()
-//				- mMapView.getLatitudeSpan() / 4, 
-//				mMapView.getMapCenter().getLongitudeE6());
-//		mc.setCenter(pt);
-//	}
-//	
-//	public void panNorth(){
-//		GeoPoint pt = new GeoPoint(mMapView.getMapCenter().getLatitudeE6()
-//				+ mMapView.getLatitudeSpan() / 4, 
-//				mMapView.getMapCenter().getLongitudeE6());
-//		mc.setCenter(pt);
-//		
-//	}
-//	
-//	public void zoomIn(){
-//		mc.zoomIn();
-//		
-//	}
-//	
-//	public void zoomOut(){
-//		mc.zoomOut();
-//		
-//	}
-//
-//
-//	private void toggleSatellite() {
-//		// TODO Auto-generated method stub
-//		mMapView.setSatellite(true);
-//		mMapView.setTraffic(false);
-//	}
-//
-//	private void toggleTraffic() {
-//		// TODO Auto-generated method stub
-//		mMapView.setSatellite(false);
-//		mMapView.setTraffic(true);
-//	}
-//	
-//	private void toggleStreetView() {
-//		// TODO Auto-generated method stub
-//		mMapView.setSatellite(false);
-//		mMapView.setTraffic(true);
-//	}
-//
-//	private void centerOnGPSPosition() {
-//		// TODO Auto-generated method stub
-//		Log.d(TAG, "center on GPS Position");
-//		String provider = "gps";
-//		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//		
-//		Location loc = lm.getLastKnownLocation(provider);
-//		loc = lm.getLastKnownLocation(provider);
-//		
-//		mDefPoint = new GeoPoint((int)(loc.getLatitude() * 1000000),
-//				(int)(loc.getLongitude() * 1000000));
-//		mDefCaption = "I'm here.";
-//		mc.animateTo(mDefPoint);
-//		mc.setCenter(mDefPoint);
-//		
-//		//show the overlay
-//		MyOverlay mo = new MyOverlay(getResources().getDrawable(R.drawable.icon_marka), mMapView);
-//		mo.onTap(mDefPoint, mMapView);
-//		mMapView.getOverlays().add(mo);
-//		
-//	}
-//	//this is used  draw an overlay on the map
-//	protected class MyOverlay extends ItemizedOverlay{
-//		
-//
-//		public MyOverlay(Drawable defaultMarker, MapView mapView) {
-//			super(defaultMarker, mapView);
-//			// TODO Auto-generated constructor stub
-//		}
-//	}
-//	
-//	protected class MyLocationListener implements LocationListener{
-//
-//		@Override
-//		public void onLocationChanged(Location location) {
-//			// TODO Auto-generated method stub
-//			Log.d(TAG, "MyLocationListener::onLocationChanged..");
-//			if (location != null) {
-//				Toast.makeText(getBaseContext(), 
-//						"Location changed : Lat: " + location.getLatitude()
-//						+ " Lng: " + location.getLongitude(), 
-//						Toast.LENGTH_SHORT).show();
-//				
-//				mDefPoint = new GeoPoint((int)(location.getLatitude() * 1000000), 
-//										(int)(location.getLongitude() * 1000000));
-//				mc.animateTo(mDefPoint);
-//				mc.setCenter(mDefPoint);
-//				
-//				//show the map
-//				MyOverlay mOverlay = new MyOverlay(getResources().getDrawable(R.drawable.icon_marka), mMapView);
-//				mOverlay.onTap(mDefPoint, mMapView);
-//				mMapView.getOverlays().add(mOverlay);
-//				
-//			}
-//		}
-//
-//		@Override
-//		public void onProviderDisabled(String provider) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//
-//		@Override
-//		public void onProviderEnabled(String provider) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//
-//		@Override
-//		public void onStatusChanged(String provider, int status, Bundle extras) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//		
-//		
-//	}
-//	@Override
-//	protected void onStop() {
-//		super.onStop();
-//		Log.d(TAG, "onStop");
-//		// mDbHelper.close();
-//		//mlcDbHelper.close();
-//	}
-//	
-//	@Override
-//    public void onDestroy() {
-//		Log.d(TAG, "onDestroy.");
-//        super.onDestroy();
-//        stopTrackService();
-//        }
+
 //	
 	
 	

@@ -236,18 +236,23 @@ containing a value of this type.
         public static final int setting=0x7f020025;
     }
     public static final class id {
+        public static final int created=0x7f050010;
+        public static final int desc=0x7f050011;
         public static final int hybrid=0x7f050004;
         public static final int map=0x7f05000c;
+        public static final int name=0x7f05000f;
         public static final int new_desc=0x7f050006;
         public static final int new_name=0x7f050005;
         public static final int new_submit=0x7f050007;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
+        public static final int row=0x7f05000e;
         public static final int satellite=0x7f050002;
         public static final int setting_gps=0x7f050009;
         public static final int setting_map_level=0x7f05000a;
         public static final int setting_submit=0x7f05000b;
         public static final int setting_tips=0x7f050008;
+        public static final int stop_track=0x7f05000d;
         public static final int terrain=0x7f050003;
     }
     public static final class integer {
@@ -259,6 +264,7 @@ containing a value of this type.
         public static final int new_track=0x7f030002;
         public static final int setting=0x7f030003;
         public static final int show_track=0x7f030004;
+        public static final int track_row=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -395,6 +401,9 @@ containing a value of this type.
         public static final int spinner_gps_prompt=0x7f060036;
         public static final int spinner_map_prompt=0x7f060037;
         public static final int start=0x7f06001a;
+        /**  stop service 
+         */
+        public static final int stop_track=0x7f06003e;
         public static final int street=0x7f06003d;
         public static final int title=0x7f06001e;
         public static final int traffic=0x7f06003c;

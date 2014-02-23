@@ -61,6 +61,7 @@ public class NewTrack extends Activity{
 						
 						Intent intent = new Intent();
 						intent.setClass(NewTrack.this, ShowTrack.class);
+						intent.putExtra(MainActivity.STATUS, MainActivity.NEW);
 						intent.putExtra(TrackDbAdapter.KEY_ROWID, row_id);
 						intent.putExtra(TrackDbAdapter.NAME, name);
 						intent.putExtra(TrackDbAdapter.DESC, desc);

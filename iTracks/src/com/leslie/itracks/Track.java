@@ -5,6 +5,7 @@ import android.R.integer;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -29,9 +30,10 @@ public class Track extends Service{
 		return null;
 	}
 	
-	public void onStart(Intent intent, int startId){
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId){
 		Log.d(TAG, "onStart.");
-		super.onStart(intent, startId);
+		super.onStartCommand(intent, flags, startId);
 		
 		mlcDbHelper = new LocateDbAdapter(this);
 		mlcDbHelper.open();
@@ -44,7 +46,14 @@ public class Track extends Service{
 		
 		lManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		locationListener = new MyLocationListener();
-		lManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+		SharedPreferences settings = getSharedPreferences(Setting.SETTING_INFOS, 0);	
+
+		lManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 
+										Long.parseLong(settings.getString(Setting.SETTING_GPS, ""))*60*1000, 
+										0, 
+										locationListener);
+		
+		return startId;
  	}
 	
 	public static LocateDbAdapter getDbHelper(){

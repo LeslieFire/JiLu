@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title">最近记录:</string>
+    <string name="title">记路:</string>
     <string name="app_name">iTracks</string>
     <string name="app_title">iTracks -Track My Location.</string>
+    
+    <!-- Actions  -->
+    <string name="action_search">search</string>
+    <string name="action_settings">settings</string>
+    
     
     <string name="menu_main">主界面</string>
     <string name="menu_new">新建跟踪</string>

@@ -12,9 +12,11 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CursorAdapter;
@@ -23,7 +25,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends BaseActivity{
 
 	public final String TAG = "mainActivity";
 	public static String CONTINUE = "continue";
@@ -36,135 +38,40 @@ public class MainActivity extends ListActivity {
 	
 	private boolean isExist = false;
 	
-	//Define static factors needed in menu
-	private static final int MENU_NEW = Menu.FIRST + 1;
-	private static final int MENU_CON = MENU_NEW + 1;
-	private static final int MENU_SETTING = MENU_CON + 1;
-	private static final int MENU_HELPS = MENU_SETTING + 1;
-	private static final int MENU_EXIT = MENU_HELPS + 1;
-	
-	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		setTitle(R.string.title);
-		
-		mDbHelper = new TrackDbAdapter(this);
-		mDbHelper.open();
-		
-		render_tracks();
-	}
-
-	//init menu
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		Log.d(TAG, "onCreateOptionsMenu");
-		
-		super.onCreateOptionsMenu(menu);
-		
-		// add several menu
-		menu.add(0, MENU_NEW, 0, R.string.menu_new).setIcon(
-				R.drawable.new_track).setAlphabeticShortcut('N');
-		menu.add(0, MENU_CON, 0, R.string.menu_con).setIcon(
-				R.drawable.con_track).setAlphabeticShortcut('C');
-		menu.add(0, MENU_SETTING, 0, R.string.menu_setting).setIcon(
-				R.drawable.setting).setAlphabeticShortcut('S');
-		menu.add(0, MENU_HELPS, 0, R.string.menu_helps).setIcon(
-				R.drawable.helps).setAlphabeticShortcut('H');
-		menu.add(0, MENU_EXIT, 0, R.string.menu_exit).setIcon(
-				R.drawable.exit).setAlphabeticShortcut('E');
-				
-		return true;
+	public boolean onCreateOptionsMenu(Menu menu){
+		//Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main,menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 	
-	//当一个菜单被选中时调用
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		Log.d(TAG, "onOptionsItemSelected");
-		Intent intent = new Intent();
+		//Handle presses on the action bar items
 		
-		switch (item.getItemId()) {
-		case MENU_NEW:
-			intent.setClass(MainActivity.this, NewTrack.class);
-			startActivity(intent);
+		switch (item.getItemId()){
+		case R.id.action_search:
+			openSearch();
 			return true;
-		case MENU_CON:
-			//TODO:继续跟踪选择的记录
-			conTrackService();
+		case R.id.action_settings:
+			openSettings();
 			return true;
-		case MENU_SETTING:
-			intent.setClass(MainActivity.this, Setting.class);
-			startActivity(intent);
-			return true;
-		case MENU_HELPS:
-			intent.setClass(MainActivity.this, Helps.class);
-			startActivity(intent);
-			return true;
-		case MENU_EXIT:
-			finish();
-			
 		default:
-			break;
+			return super.onOptionsItemSelected(item);
 		}
-		return true;
 	}
 	
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		Log.d(TAG, "onListItemClick.");
-		
-		super.onListItemClick(l, v, position, id);
-		Cursor cursor = mTrackCursor;
-		cursor.moveToPosition(position);
-		
-		Intent intent = new Intent(this, ShowTrack.class);
-		intent.putExtra(STATUS, SHOW);
-		intent.putExtra(TrackDbAdapter.KEY_ROWID, id);
-		intent.putExtra(TrackDbAdapter.NAME, cursor
-				.getString(cursor.getColumnIndexOrThrow(TrackDbAdapter.NAME)));
-		intent.putExtra(TrackDbAdapter.DESC, cursor
-				.getString(cursor.getColumnIndexOrThrow(TrackDbAdapter.DESC)));
-		
-		startActivity(intent);
-		
-	}
-	
-	private void conTrackService() {
+	private void openSettings() {
 		// TODO Auto-generated method stub
-		Log.d(TAG, "conTrackService");
-		Intent intent = new Intent("com.leslie.itracks.START_TRACK_SERVICE");
-		Long track_id = getListView().getSelectedItemId();
-		intent.putExtra(LocateDbAdapter.TRACKID, track_id);
-		startService(intent);
+		
 	}
 
-	private void render_tracks() {
+	private void openSearch() {
 		// TODO Auto-generated method stub
-		renderListView();
+		
 	}
 
-	private void renderListView() {
-		// TODO Auto-generated method stub
-		Log.d(TAG, "render list view");
-		try {
-			mTrackCursor = mDbHelper.getAllTrack();
-			if (mTrackCursor == null)
-				return ;
-			
-			String[] from = new String[] { TrackDbAdapter.NAME,
-					TrackDbAdapter.CREATED ,TrackDbAdapter.DESC};
-			int[] to = new int[] { R.id.name, R.id.created ,R.id.desc};
-			SimpleCursorAdapter tracks = new SimpleCursorAdapter(this,
-					R.layout.track_row, mTrackCursor, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-			setListAdapter(tracks);
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.toString());
-		}
-		
-		
-	}
-	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event){
 		
@@ -188,7 +95,7 @@ public class MainActivity extends ListActivity {
 		if (!isExist) {
 			isExist = true;
 			Toast.makeText(getApplicationContext(), 
-					"请再按一次退出", 
+					"锟斤拷锟劫帮拷一锟斤拷锟剿筹拷", 
 					Toast.LENGTH_SHORT).show();
 			mHandler.sendEmptyMessageDelayed(0, 2000);
 		} else {
@@ -196,5 +103,4 @@ public class MainActivity extends ListActivity {
 			System.exit(0);
 		}
 	}
-
 }

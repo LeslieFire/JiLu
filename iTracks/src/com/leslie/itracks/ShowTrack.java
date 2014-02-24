@@ -38,8 +38,6 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.leslie.itracks.R.layout;
 
 
-
-
 public class ShowTrack extends FragmentActivity{
 	private static final String TAG = "ShowTrack";
 	
@@ -75,6 +73,8 @@ public class ShowTrack extends FragmentActivity{
 		Log.d(TAG, "ShowTrack:onCreate.");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.show_track);
+		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		findViews();
 		setListeners();
@@ -260,7 +260,7 @@ public class ShowTrack extends FragmentActivity{
 //		
 //		mBMapMan=new BMapManager(getApplication());
 //    	mBMapMan.init("8Y5Wcz84UeF6Htc1gOBzHh14", null);  
-//    	//×¢Òâ£ºÇëÔÚÊÔÓÃsetContentViewÇ°³õÊ¼»¯BMapManager¶ÔÏó£¬·ñÔò»á±¨´í
+//    	//×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½setContentViewÇ°ï¿½ï¿½Ê¼ï¿½ï¿½BMapManagerï¿½ï¿½ï¿½ó£¬·ï¿½ï¿½ï¿½á±¨ï¿½ï¿½
 //    	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 //		setContentView(R.layout.show_track);
 ////		findViews();

@@ -11,179 +11,307 @@ public final class R {
     public static final class array {
         /**  Used in View/setting.java 
          */
-        public static final int gps=0x7f080000;
-        public static final int map=0x7f080001;
+        public static final int gps=0x7f0b0000;
+        public static final int map=0x7f0b0001;
     }
     public static final class attr {
-        /** 
-    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
-    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
-    &lt;width&gt;x&lt;height&gt;.
-    
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int adSize=0x7f010000;
-        /** 
-    A comma-separated list of the supported ad sizes. The sizes must be one of
-    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
-    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
-    
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        public static final int centered=0x7f010005;
+        /**  Screen edge padding. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int adSizes=0x7f010001;
-        /**  The ad unit ID. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        public static final int clipPadding=0x7f010010;
+        /**  Length of the delay to fade the indicator. 
+         <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int adUnitId=0x7f010002;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+        public static final int fadeDelay=0x7f01001b;
+        /**  Length of the indicator fade to transparent. 
+         <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraBearing=0x7f010004;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+        public static final int fadeLength=0x7f01001c;
+        /**  Whether or not the selected indicator fades. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLat=0x7f010005;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+        public static final int fades=0x7f01001a;
+        /**  Color of the filled circle that represents the current page. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLng=0x7f010006;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+        public static final int fillColor=0x7f010009;
+        /**  Color of the footer line and indicator. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTilt=0x7f010007;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+        public static final int footerColor=0x7f010011;
+        /**  Height of the indicator above the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraZoom=0x7f010008;
-        /** <p>Must be one of the following constant values.</p>
+        public static final int footerIndicatorHeight=0x7f010014;
+        /**  Style of the indicator. Default is triangle. 
+         <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>none</code></td><td>0</td><td></td></tr>
-<tr><td><code>normal</code></td><td>1</td><td></td></tr>
-<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
-<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
-<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int mapType=0x7f010003;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int footerIndicatorStyle=0x7f010013;
+        /**  Left and right padding of the underline indicator. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiCompass=0x7f010009;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int footerIndicatorUnderlinePadding=0x7f010015;
+        /**  Height of the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiRotateGestures=0x7f01000a;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int footerLineHeight=0x7f010012;
+        /**  Padding between the bottom of the title and the footer. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiScrollGestures=0x7f01000b;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int footerPadding=0x7f010016;
+        /**  Width of the gap between each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiTiltGestures=0x7f01000c;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int gapWidth=0x7f01000f;
+        /**  Width of each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomControls=0x7f01000d;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int lineWidth=0x7f01000e;
+        /**  Color of the filled circles that represents pages. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomGestures=0x7f01000e;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int pageColor=0x7f01000a;
+        /**  Radius of the circles. This is also the spacing between circles. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int useViewLifecycle=0x7f01000f;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        public static final int radius=0x7f01000b;
+        /**  Whether or not the selected item is displayed as bold. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int zOrderOnTop=0x7f010010;
+        public static final int selectedBold=0x7f010017;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedColor=0x7f010006;
+        /**  Whether or not the selected indicator snaps to the circles. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int snap=0x7f01000c;
+        /**  Color of the open circles. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeColor=0x7f01000d;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeWidth=0x7f010007;
+        /**  Padding between titles when bumping into each other. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titlePadding=0x7f010018;
+        /**  Padding between titles and the top of the View. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int topPadding=0x7f010019;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselectedColor=0x7f010008;
+        /**  Style of the circle indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiCirclePageIndicatorStyle=0x7f010000;
+        /**  Style of the line indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiLinePageIndicatorStyle=0x7f010001;
+        /**  Style of the tab indicator's tabs. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTabPageIndicatorStyle=0x7f010003;
+        /**  Style of the title indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTitlePageIndicatorStyle=0x7f010002;
+        /**  Style of the underline indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiUnderlinePageIndicatorStyle=0x7f010004;
+    }
+    public static final class bool {
+        public static final int default_circle_indicator_centered=0x7f070000;
+        public static final int default_circle_indicator_snap=0x7f070001;
+        public static final int default_line_indicator_centered=0x7f070002;
+        public static final int default_title_indicator_selected_bold=0x7f070003;
+        public static final int default_underline_indicator_fades=0x7f070004;
     }
     public static final class color {
-        public static final int common_action_bar_splitter=0x7f040009;
-        /**  Sign-in Button Colors 
-         */
-        public static final int common_signin_btn_dark_text_default=0x7f040000;
-        public static final int common_signin_btn_dark_text_disabled=0x7f040002;
-        public static final int common_signin_btn_dark_text_focused=0x7f040003;
-        public static final int common_signin_btn_dark_text_pressed=0x7f040001;
-        public static final int common_signin_btn_default_background=0x7f040008;
-        public static final int common_signin_btn_light_text_default=0x7f040004;
-        public static final int common_signin_btn_light_text_disabled=0x7f040006;
-        public static final int common_signin_btn_light_text_focused=0x7f040007;
-        public static final int common_signin_btn_light_text_pressed=0x7f040005;
-        public static final int common_signin_btn_text_dark=0x7f04000a;
-        public static final int common_signin_btn_text_light=0x7f04000b;
+        public static final int default_circle_indicator_fill_color=0x7f060008;
+        public static final int default_circle_indicator_page_color=0x7f060009;
+        public static final int default_circle_indicator_stroke_color=0x7f06000a;
+        public static final int default_line_indicator_selected_color=0x7f06000b;
+        public static final int default_line_indicator_unselected_color=0x7f06000c;
+        public static final int default_title_indicator_footer_color=0x7f06000d;
+        public static final int default_title_indicator_selected_color=0x7f06000e;
+        public static final int default_title_indicator_text_color=0x7f06000f;
+        public static final int default_underline_indicator_selected_color=0x7f060010;
+        public static final int vpi__background_holo_dark=0x7f060000;
+        public static final int vpi__background_holo_light=0x7f060001;
+        public static final int vpi__bright_foreground_disabled_holo_dark=0x7f060004;
+        public static final int vpi__bright_foreground_disabled_holo_light=0x7f060005;
+        public static final int vpi__bright_foreground_holo_dark=0x7f060002;
+        public static final int vpi__bright_foreground_holo_light=0x7f060003;
+        public static final int vpi__bright_foreground_inverse_holo_dark=0x7f060006;
+        public static final int vpi__bright_foreground_inverse_holo_light=0x7f060007;
+        public static final int vpi__dark_theme=0x7f060011;
+        public static final int vpi__light_theme=0x7f060012;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -192,71 +320,78 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f090000;
-        public static final int activity_vertical_margin=0x7f090001;
+        public static final int activity_horizontal_margin=0x7f09000d;
+        public static final int activity_vertical_margin=0x7f09000e;
+        public static final int default_circle_indicator_radius=0x7f090000;
+        public static final int default_circle_indicator_stroke_width=0x7f090001;
+        public static final int default_line_indicator_gap_width=0x7f090003;
+        public static final int default_line_indicator_line_width=0x7f090002;
+        public static final int default_line_indicator_stroke_width=0x7f090004;
+        public static final int default_title_indicator_clip_padding=0x7f090005;
+        public static final int default_title_indicator_footer_indicator_height=0x7f090007;
+        public static final int default_title_indicator_footer_indicator_underline_padding=0x7f090008;
+        public static final int default_title_indicator_footer_line_height=0x7f090006;
+        public static final int default_title_indicator_footer_padding=0x7f090009;
+        public static final int default_title_indicator_text_size=0x7f09000a;
+        public static final int default_title_indicator_title_padding=0x7f09000b;
+        public static final int default_title_indicator_top_padding=0x7f09000c;
     }
     public static final class drawable {
-        public static final int back=0x7f020000;
-        public static final int common_signin_btn_icon_dark=0x7f020001;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f020002;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020003;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020004;
-        public static final int common_signin_btn_icon_disabled_light=0x7f020005;
-        public static final int common_signin_btn_icon_focus_dark=0x7f020006;
-        public static final int common_signin_btn_icon_focus_light=0x7f020007;
-        public static final int common_signin_btn_icon_light=0x7f020008;
-        public static final int common_signin_btn_icon_normal_dark=0x7f020009;
-        public static final int common_signin_btn_icon_normal_light=0x7f02000a;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f02000b;
-        public static final int common_signin_btn_icon_pressed_light=0x7f02000c;
-        public static final int common_signin_btn_text_dark=0x7f02000d;
-        public static final int common_signin_btn_text_disabled_dark=0x7f02000e;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02000f;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f020010;
-        public static final int common_signin_btn_text_disabled_light=0x7f020011;
-        public static final int common_signin_btn_text_focus_dark=0x7f020012;
-        public static final int common_signin_btn_text_focus_light=0x7f020013;
-        public static final int common_signin_btn_text_light=0x7f020014;
-        public static final int common_signin_btn_text_normal_dark=0x7f020015;
-        public static final int common_signin_btn_text_normal_light=0x7f020016;
-        public static final int common_signin_btn_text_pressed_dark=0x7f020017;
-        public static final int common_signin_btn_text_pressed_light=0x7f020018;
-        public static final int con_track=0x7f020019;
-        public static final int delete=0x7f02001a;
-        public static final int exit=0x7f02001b;
-        public static final int helps=0x7f02001c;
-        public static final int ic_launcher=0x7f02001d;
-        public static final int ic_plusone_medium_off_client=0x7f02001e;
-        public static final int ic_plusone_small_off_client=0x7f02001f;
-        public static final int ic_plusone_standard_off_client=0x7f020020;
-        public static final int ic_plusone_tall_off_client=0x7f020021;
-        public static final int icon=0x7f020022;
-        public static final int icon_marka=0x7f020023;
-        public static final int new_track=0x7f020024;
-        public static final int setting=0x7f020025;
+        public static final int alert_dialog_icon=0x7f020000;
+        public static final int back=0x7f020001;
+        public static final int con_track=0x7f020002;
+        public static final int delete=0x7f020003;
+        public static final int exit=0x7f020004;
+        public static final int helps=0x7f020005;
+        public static final int ic_compose=0x7f020006;
+        public static final int ic_compose_inverse=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int ic_refresh=0x7f020009;
+        public static final int ic_refresh_inverse=0x7f02000a;
+        public static final int ic_search=0x7f02000b;
+        public static final int ic_search_inverse=0x7f02000c;
+        public static final int icon=0x7f02000d;
+        public static final int icon_marka=0x7f02000e;
+        public static final int new_track=0x7f02000f;
+        public static final int setting=0x7f020010;
+        public static final int vpi__tab_indicator=0x7f020011;
+        public static final int vpi__tab_selected_focused_holo=0x7f020012;
+        public static final int vpi__tab_selected_holo=0x7f020013;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020014;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020015;
+        public static final int vpi__tab_unselected_holo=0x7f020016;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f020017;
     }
     public static final class id {
+        public static final int action_search=0x7f050012;
+        public static final int action_settings=0x7f050013;
+        public static final int add_page=0x7f050015;
         public static final int created=0x7f050010;
         public static final int desc=0x7f050011;
-        public static final int hybrid=0x7f050004;
+        public static final int indicator=0x7f050003;
         public static final int map=0x7f05000c;
         public static final int name=0x7f05000f;
         public static final int new_desc=0x7f050006;
         public static final int new_name=0x7f050005;
         public static final int new_submit=0x7f050007;
         public static final int none=0x7f050000;
-        public static final int normal=0x7f050001;
+        public static final int pager=0x7f050004;
+        public static final int random=0x7f050014;
+        public static final int remove_page=0x7f050016;
         public static final int row=0x7f05000e;
-        public static final int satellite=0x7f050002;
         public static final int setting_gps=0x7f050009;
         public static final int setting_map_level=0x7f05000a;
         public static final int setting_submit=0x7f05000b;
         public static final int setting_tips=0x7f050008;
         public static final int stop_track=0x7f05000d;
-        public static final int terrain=0x7f050003;
+        public static final int triangle=0x7f050001;
+        public static final int underline=0x7f050002;
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f070000;
+        public static final int default_circle_indicator_orientation=0x7f080000;
+        public static final int default_title_indicator_footer_indicator_style=0x7f080001;
+        public static final int default_underline_indicator_fade_delay=0x7f080002;
+        public static final int default_underline_indicator_fade_length=0x7f080003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -267,150 +402,61 @@ containing a value of this type.
         public static final int track_row=0x7f030005;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int main=0x7f0c0000;
     }
     public static final class string {
-        public static final int app_name=0x7f06001f;
-        public static final int app_title=0x7f060020;
-        /**   Title for notification shown when GooglePlayServices needs to be
-        enabled for a application to work. [CHAR LIMIT=70] 
+        /**  Actions  
          */
-        public static final int auth_client_needs_enabling_title=0x7f060015;
-        /**   Title for notification shown when GooglePlayServices needs to be
-        installed for a application to work. [CHAR LIMIT=70] 
-         */
-        public static final int auth_client_needs_installation_title=0x7f060016;
-        /**   Title for notification shown when GooglePlayServices needs to be
-        udpated for a application to work. [CHAR LIMIT=70] 
-         */
-        public static final int auth_client_needs_update_title=0x7f060017;
-        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
-         */
-        public static final int auth_client_play_services_err_notification_msg=0x7f060018;
-        /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
-         */
-        public static final int auth_client_requested_by_msg=0x7f060019;
-        /**   Title for notification shown when a bad version of GooglePlayServices
-        has been installed and needs correction for an application to work.
-        [CHAR LIMIT=70] 
-         */
-        public static final int auth_client_using_bad_version_title=0x7f060014;
-        public static final int author=0x7f06003a;
-        public static final int author_text=0x7f06001d;
-        /**  Button in confirmation dialog to enable Google Play services.  Clicking it
-        will direct user to application settings of Google Play services where they
-        can enable it [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_enable_button=0x7f060006;
-        /**  Message in confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_enable_text=0x7f060005;
-        /**  Title of confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_enable_title=0x7f060004;
-        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_install_button=0x7f060003;
-        /**  (For phones) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_install_text_phone=0x7f060001;
-        /**  (For tablets) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_install_text_tablet=0x7f060002;
-        /**  Title of confirmation dialog informing user that they need to install
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_install_title=0x7f060000;
-        /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_invalid_account_text=0x7f06000c;
-        /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_invalid_account_title=0x7f06000b;
-        /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_network_error_text=0x7f06000a;
-        /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_network_error_title=0x7f060009;
-        /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
-        services [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_unknown_issue=0x7f06000d;
-        /**  Message in confirmation dialog informing user that date on the device is not correct,
-    causing certificate checks to fail. [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_unsupported_date_text=0x7f060010;
-        /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_unsupported_text=0x7f06000f;
-        /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_unsupported_title=0x7f06000e;
-        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_update_button=0x7f060011;
-        /**  Message in confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-         */
-        public static final int common_google_play_services_update_text=0x7f060008;
-        /**  Title of confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-         */
-        public static final int common_google_play_services_update_title=0x7f060007;
-        /**  Sign-in button text [CHAR LIMIT=15] 
-         */
-        public static final int common_signin_button_text=0x7f060012;
-        /**  Long form sign-in button text [CHAR LIMIT=30] 
-         */
-        public static final int common_signin_button_text_long=0x7f060013;
-        public static final int helps_infos=0x7f060039;
-        public static final int helps_text=0x7f06001c;
-        public static final int menu_back=0x7f060027;
-        public static final int menu_con=0x7f060023;
-        public static final int menu_del=0x7f060024;
-        public static final int menu_exit=0x7f060028;
-        public static final int menu_helps=0x7f060026;
-        public static final int menu_main=0x7f060021;
-        public static final int menu_new=0x7f060022;
-        public static final int menu_setting=0x7f060025;
-        public static final int new_desc=0x7f06002b;
-        public static final int new_fail=0x7f06002e;
-        public static final int new_name=0x7f06002a;
-        public static final int new_name_null=0x7f06002d;
-        public static final int new_submit=0x7f06002c;
+        public static final int action_search=0x7f040008;
+        public static final int action_settings=0x7f040009;
+        public static final int app_name=0x7f040006;
+        public static final int app_title=0x7f040007;
+        public static final int author=0x7f040023;
+        public static final int author_text=0x7f040004;
+        public static final int helps_infos=0x7f040022;
+        public static final int helps_text=0x7f040003;
+        public static final int lib_name=0x7f040000;
+        public static final int menu_back=0x7f040010;
+        public static final int menu_con=0x7f04000c;
+        public static final int menu_del=0x7f04000d;
+        public static final int menu_exit=0x7f040011;
+        public static final int menu_helps=0x7f04000f;
+        public static final int menu_main=0x7f04000a;
+        public static final int menu_new=0x7f04000b;
+        public static final int menu_setting=0x7f04000e;
+        public static final int new_desc=0x7f040014;
+        public static final int new_fail=0x7f040017;
+        public static final int new_name=0x7f040013;
+        public static final int new_name_null=0x7f040016;
+        public static final int new_submit=0x7f040015;
         /** 新建跟踪界面
          */
-        public static final int new_tips=0x7f060029;
+        public static final int new_tips=0x7f040012;
         /**  地图展示 
          */
-        public static final int satellite=0x7f06003b;
-        public static final int setting_fail=0x7f060034;
-        public static final int setting_gps=0x7f060030;
-        public static final int setting_map_level=0x7f060031;
-        public static final int setting_null=0x7f060033;
-        public static final int setting_ok=0x7f060035;
-        public static final int setting_submit=0x7f060032;
+        public static final int satellite=0x7f040024;
+        public static final int setting_fail=0x7f04001d;
+        public static final int setting_gps=0x7f040019;
+        public static final int setting_map_level=0x7f04001a;
+        public static final int setting_null=0x7f04001c;
+        public static final int setting_ok=0x7f04001e;
+        public static final int setting_submit=0x7f04001b;
         /** 个人设置界面
          */
-        public static final int setting_tips=0x7f06002f;
-        public static final int spinner_gps_prompt=0x7f060036;
-        public static final int spinner_map_prompt=0x7f060037;
-        public static final int start=0x7f06001a;
+        public static final int setting_tips=0x7f040018;
+        public static final int spinner_gps_prompt=0x7f04001f;
+        public static final int spinner_map_prompt=0x7f040020;
+        public static final int start=0x7f040001;
         /**  stop service 
          */
-        public static final int stop_track=0x7f06003e;
-        public static final int street=0x7f06003d;
-        public static final int title=0x7f06001e;
-        public static final int traffic=0x7f06003c;
+        public static final int stop_track=0x7f040027;
+        public static final int street=0x7f040026;
+        public static final int title=0x7f040005;
+        public static final int traffic=0x7f040025;
         /** 帮助信息界面
          */
-        public static final int version=0x7f060038;
-        public static final int version_text=0x7f06001b;
+        public static final int version=0x7f040021;
+        public static final int version_text=0x7f040002;
     }
     public static final class style {
         /** 
@@ -434,203 +480,416 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0000;
+        public static final int AppBaseTheme=0x7f0a0004;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0a0001;
+        public static final int AppTheme=0x7f0a0005;
+        public static final int TextAppearance_TabPageIndicator=0x7f0a0003;
+        public static final int Theme_PageIndicatorDefaults=0x7f0a0000;
+        public static final int Widget=0x7f0a0001;
+        public static final int Widget_TabPageIndicator=0x7f0a0002;
     }
     public static final class styleable {
-        /** Attributes that can be used with a AdsAttrs.
+        /** Attributes that can be used with a CirclePageIndicator.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #AdsAttrs_adSize com.leslie.itracks:adSize}</code></td><td>
-    The size of the ad.</td></tr>
-           <tr><td><code>{@link #AdsAttrs_adSizes com.leslie.itracks:adSizes}</code></td><td>
-    A comma-separated list of the supported ad sizes.</td></tr>
-           <tr><td><code>{@link #AdsAttrs_adUnitId com.leslie.itracks:adUnitId}</code></td><td> The ad unit ID.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_centered com.leslie.itracks:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_fillColor com.leslie.itracks:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_pageColor com.leslie.itracks:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_radius com.leslie.itracks:radius}</code></td><td> Radius of the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_snap com.leslie.itracks:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.leslie.itracks:strokeColor}</code></td><td> Color of the open circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.leslie.itracks:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
            </table>
-           @see #AdsAttrs_adSize
-           @see #AdsAttrs_adSizes
-           @see #AdsAttrs_adUnitId
+           @see #CirclePageIndicator_android_orientation
+           @see #CirclePageIndicator_centered
+           @see #CirclePageIndicator_fillColor
+           @see #CirclePageIndicator_pageColor
+           @see #CirclePageIndicator_radius
+           @see #CirclePageIndicator_snap
+           @see #CirclePageIndicator_strokeColor
+           @see #CirclePageIndicator_strokeWidth
          */
-        public static final int[] AdsAttrs = {
-            0x7f010000, 0x7f010001, 0x7f010002
+        public static final int[] CirclePageIndicator = {
+            0x010100c4, 0x7f010005, 0x7f010007, 0x7f010009,
+            0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d
         };
         /**
           <p>
           @attr description
-          
-    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
-    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
-    &lt;width&gt;x&lt;height&gt;.
-    
-
-
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          <p>This is a private symbol.
-          @attr name com.leslie.itracks:adSize
+           Orientation of the indicator. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orientation}.
+          @attr name android:orientation
         */
-        public static final int AdsAttrs_adSize = 0;
+        public static final int CirclePageIndicator_android_orientation = 0;
         /**
           <p>
           @attr description
-          
-    A comma-separated list of the supported ad sizes. The sizes must be one of
-    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
-    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
-    
+           Whether or not the indicators should be centered. 
 
 
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.leslie.itracks:adSizes
+          @attr name com.leslie.itracks:centered
         */
-        public static final int AdsAttrs_adSizes = 1;
+        public static final int CirclePageIndicator_centered = 1;
         /**
           <p>
           @attr description
-           The ad unit ID. 
+           Color of the filled circle that represents the current page. 
 
 
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.leslie.itracks:adUnitId
+          @attr name com.leslie.itracks:fillColor
         */
-        public static final int AdsAttrs_adUnitId = 2;
-        /** Attributes that can be used with a MapAttrs.
+        public static final int CirclePageIndicator_fillColor = 3;
+        /**
+          <p>
+          @attr description
+           Color of the filled circles that represents pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:pageColor
+        */
+        public static final int CirclePageIndicator_pageColor = 4;
+        /**
+          <p>
+          @attr description
+           Radius of the circles. This is also the spacing between circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:radius
+        */
+        public static final int CirclePageIndicator_radius = 5;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator snaps to the circles. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:snap
+        */
+        public static final int CirclePageIndicator_snap = 6;
+        /**
+          <p>
+          @attr description
+           Color of the open circles. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:strokeColor
+        */
+        public static final int CirclePageIndicator_strokeColor = 7;
+        /**
+          <p>
+          @attr description
+           Width of the stroke used to draw the circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:strokeWidth
+        */
+        public static final int CirclePageIndicator_strokeWidth = 2;
+        /** Attributes that can be used with a LinePageIndicator.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MapAttrs_cameraBearing com.leslie.itracks:cameraBearing}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTargetLat com.leslie.itracks:cameraTargetLat}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTargetLng com.leslie.itracks:cameraTargetLng}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTilt com.leslie.itracks:cameraTilt}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraZoom com.leslie.itracks:cameraZoom}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_mapType com.leslie.itracks:mapType}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiCompass com.leslie.itracks:uiCompass}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiRotateGestures com.leslie.itracks:uiRotateGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiScrollGestures com.leslie.itracks:uiScrollGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiTiltGestures com.leslie.itracks:uiTiltGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiZoomControls com.leslie.itracks:uiZoomControls}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiZoomGestures com.leslie.itracks:uiZoomGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_useViewLifecycle com.leslie.itracks:useViewLifecycle}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_zOrderOnTop com.leslie.itracks:zOrderOnTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_centered com.leslie.itracks:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_gapWidth com.leslie.itracks:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_lineWidth com.leslie.itracks:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_selectedColor com.leslie.itracks:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.leslie.itracks:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.leslie.itracks:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
            </table>
-           @see #MapAttrs_cameraBearing
-           @see #MapAttrs_cameraTargetLat
-           @see #MapAttrs_cameraTargetLng
-           @see #MapAttrs_cameraTilt
-           @see #MapAttrs_cameraZoom
-           @see #MapAttrs_mapType
-           @see #MapAttrs_uiCompass
-           @see #MapAttrs_uiRotateGestures
-           @see #MapAttrs_uiScrollGestures
-           @see #MapAttrs_uiTiltGestures
-           @see #MapAttrs_uiZoomControls
-           @see #MapAttrs_uiZoomGestures
-           @see #MapAttrs_useViewLifecycle
-           @see #MapAttrs_zOrderOnTop
+           @see #LinePageIndicator_centered
+           @see #LinePageIndicator_gapWidth
+           @see #LinePageIndicator_lineWidth
+           @see #LinePageIndicator_selectedColor
+           @see #LinePageIndicator_strokeWidth
+           @see #LinePageIndicator_unselectedColor
          */
-        public static final int[] MapAttrs = {
-            0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006,
-            0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a,
-            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
-            0x7f01000f, 0x7f010010
+        public static final int[] LinePageIndicator = {
+            0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008,
+            0x7f01000e, 0x7f01000f
         };
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#cameraBearing}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
 
 
-          <p>Must be a floating point value, such as "<code>1.2</code>".
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:cameraBearing
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:centered
         */
-        public static final int MapAttrs_cameraBearing = 1;
+        public static final int LinePageIndicator_centered = 0;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#cameraTargetLat}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Width of the gap between each indicator line. 
 
 
-          <p>Must be a floating point value, such as "<code>1.2</code>".
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:cameraTargetLat
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:gapWidth
         */
-        public static final int MapAttrs_cameraTargetLat = 2;
+        public static final int LinePageIndicator_gapWidth = 5;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#cameraTargetLng}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Width of each indicator line. 
 
 
-          <p>Must be a floating point value, such as "<code>1.2</code>".
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:cameraTargetLng
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:lineWidth
         */
-        public static final int MapAttrs_cameraTargetLng = 3;
+        public static final int LinePageIndicator_lineWidth = 4;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#cameraTilt}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
 
 
-          <p>Must be a floating point value, such as "<code>1.2</code>".
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:cameraTilt
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:selectedColor
         */
-        public static final int MapAttrs_cameraTilt = 4;
+        public static final int LinePageIndicator_selectedColor = 1;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#cameraZoom}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Width of each indicator line's stroke. 
 
 
-          <p>Must be a floating point value, such as "<code>1.2</code>".
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:cameraZoom
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:strokeWidth
         */
-        public static final int MapAttrs_cameraZoom = 5;
+        public static final int LinePageIndicator_strokeWidth = 2;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#mapType}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Color of the unselected lines that represent the pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:unselectedColor
+        */
+        public static final int LinePageIndicator_unselectedColor = 3;
+        /** Attributes that can be used with a TitlePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.leslie.itracks:clipPadding}</code></td><td> Screen edge padding.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerColor com.leslie.itracks:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.leslie.itracks:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.leslie.itracks:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.leslie.itracks:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.leslie.itracks:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.leslie.itracks:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.leslie.itracks:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.leslie.itracks:selectedColor}</code></td><td> Color of the selected title.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.leslie.itracks:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_topPadding com.leslie.itracks:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
+           </table>
+           @see #TitlePageIndicator_android_textColor
+           @see #TitlePageIndicator_android_textSize
+           @see #TitlePageIndicator_clipPadding
+           @see #TitlePageIndicator_footerColor
+           @see #TitlePageIndicator_footerIndicatorHeight
+           @see #TitlePageIndicator_footerIndicatorStyle
+           @see #TitlePageIndicator_footerIndicatorUnderlinePadding
+           @see #TitlePageIndicator_footerLineHeight
+           @see #TitlePageIndicator_footerPadding
+           @see #TitlePageIndicator_selectedBold
+           @see #TitlePageIndicator_selectedColor
+           @see #TitlePageIndicator_titlePadding
+           @see #TitlePageIndicator_topPadding
+         */
+        public static final int[] TitlePageIndicator = {
+            0x01010095, 0x01010098, 0x7f010006, 0x7f010010,
+            0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014,
+            0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018,
+            0x7f010019
+        };
+        /**
+          <p>
+          @attr description
+           Color of regular titles. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textColor}.
+          @attr name android:textColor
+        */
+        public static final int TitlePageIndicator_android_textColor = 1;
+        /**
+          <p>
+          @attr description
+           Size of title text. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textSize}.
+          @attr name android:textSize
+        */
+        public static final int TitlePageIndicator_android_textSize = 0;
+        /**
+          <p>
+          @attr description
+           Screen edge padding. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:clipPadding
+        */
+        public static final int TitlePageIndicator_clipPadding = 3;
+        /**
+          <p>
+          @attr description
+           Color of the footer line and indicator. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:footerColor
+        */
+        public static final int TitlePageIndicator_footerColor = 4;
+        /**
+          <p>
+          @attr description
+           Height of the indicator above the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:footerIndicatorHeight
+        */
+        public static final int TitlePageIndicator_footerIndicatorHeight = 7;
+        /**
+          <p>
+          @attr description
+           Style of the indicator. Default is triangle. 
 
 
           <p>Must be one of the following constant values.</p>
@@ -640,17 +899,71 @@ containing a value of this type.
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>none</code></td><td>0</td><td></td></tr>
-<tr><td><code>normal</code></td><td>1</td><td></td></tr>
-<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
-<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
-<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.leslie.itracks:mapType
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:footerIndicatorStyle
         */
-        public static final int MapAttrs_mapType = 0;
+        public static final int TitlePageIndicator_footerIndicatorStyle = 6;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#uiCompass}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Left and right padding of the underline indicator. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:footerIndicatorUnderlinePadding
+        */
+        public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 8;
+        /**
+          <p>
+          @attr description
+           Height of the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:footerLineHeight
+        */
+        public static final int TitlePageIndicator_footerLineHeight = 5;
+        /**
+          <p>
+          @attr description
+           Padding between the bottom of the title and the footer. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:footerPadding
+        */
+        public static final int TitlePageIndicator_footerPadding = 9;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected item is displayed as bold. 
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -659,12 +972,118 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:uiCompass
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:selectedBold
         */
-        public static final int MapAttrs_uiCompass = 6;
+        public static final int TitlePageIndicator_selectedBold = 10;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#uiRotateGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Color of the selected title. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:selectedColor
+        */
+        public static final int TitlePageIndicator_selectedColor = 2;
+        /**
+          <p>
+          @attr description
+           Padding between titles when bumping into each other. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:titlePadding
+        */
+        public static final int TitlePageIndicator_titlePadding = 11;
+        /**
+          <p>
+          @attr description
+           Padding between titles and the top of the View. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:topPadding
+        */
+        public static final int TitlePageIndicator_topPadding = 12;
+        /** Attributes that can be used with a UnderlinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.leslie.itracks:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.leslie.itracks:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fades com.leslie.itracks:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.leslie.itracks:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           </table>
+           @see #UnderlinePageIndicator_fadeDelay
+           @see #UnderlinePageIndicator_fadeLength
+           @see #UnderlinePageIndicator_fades
+           @see #UnderlinePageIndicator_selectedColor
+         */
+        public static final int[] UnderlinePageIndicator = {
+            0x7f010006, 0x7f01001a, 0x7f01001b, 0x7f01001c
+        };
+        /**
+          <p>
+          @attr description
+           Length of the delay to fade the indicator. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:fadeDelay
+        */
+        public static final int UnderlinePageIndicator_fadeDelay = 2;
+        /**
+          <p>
+          @attr description
+           Length of the indicator fade to transparent. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:fadeLength
+        */
+        public static final int UnderlinePageIndicator_fadeLength = 3;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator fades. 
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -673,92 +1092,108 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:uiRotateGestures
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:fades
         */
-        public static final int MapAttrs_uiRotateGestures = 7;
+        public static final int UnderlinePageIndicator_fades = 1;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#uiScrollGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
 
 
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.leslie.itracks:uiScrollGestures
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:selectedColor
         */
-        public static final int MapAttrs_uiScrollGestures = 8;
+        public static final int UnderlinePageIndicator_selectedColor = 0;
+        /** Attributes that can be used with a ViewPagerIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.leslie.itracks:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.leslie.itracks:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.leslie.itracks:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.leslie.itracks:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.leslie.itracks:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
+           </table>
+           @see #ViewPagerIndicator_vpiCirclePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiLinePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTabPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTitlePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle
+         */
+        public static final int[] ViewPagerIndicator = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004
+        };
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#uiTiltGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Style of the circle indicator. 
 
 
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.leslie.itracks:uiTiltGestures
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:vpiCirclePageIndicatorStyle
         */
-        public static final int MapAttrs_uiTiltGestures = 9;
+        public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#uiZoomControls}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Style of the line indicator. 
 
 
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.leslie.itracks:uiZoomControls
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:vpiLinePageIndicatorStyle
         */
-        public static final int MapAttrs_uiZoomControls = 10;
+        public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 1;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#uiZoomGestures}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Style of the tab indicator's tabs. 
 
 
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.leslie.itracks:uiZoomGestures
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:vpiTabPageIndicatorStyle
         */
-        public static final int MapAttrs_uiZoomGestures = 11;
+        public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 3;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#useViewLifecycle}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Style of the title indicator. 
 
 
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.leslie.itracks:useViewLifecycle
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:vpiTitlePageIndicatorStyle
         */
-        public static final int MapAttrs_useViewLifecycle = 12;
+        public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 2;
         /**
-          <p>This symbol is the offset where the {@link com.leslie.itracks.R.attr#zOrderOnTop}
-          attribute's value can be found in the {@link #MapAttrs} array.
+          <p>
+          @attr description
+           Style of the underline indicator. 
 
 
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.leslie.itracks:zOrderOnTop
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.leslie.itracks:vpiUnderlinePageIndicatorStyle
         */
-        public static final int MapAttrs_zOrderOnTop = 13;
+        public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 4;
     };
 }

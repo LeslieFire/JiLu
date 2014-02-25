@@ -8,6 +8,11 @@
     <string name="action_search">search</string>
     <string name="action_settings">settings</string>
     
+    <!-- tabs -->
+    <string name="past">忆往昔</string>
+    <string name="preference">订制</string>
+    <string name="tracking">囧途</string>
+    
     
     <string name="menu_main">主界面</string>
     <string name="menu_new">新建跟踪</string>

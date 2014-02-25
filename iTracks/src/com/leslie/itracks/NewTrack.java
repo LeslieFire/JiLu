@@ -3,6 +3,7 @@ package com.leslie.itracks;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class NewTrack extends Activity{
+public class NewTrack extends Fragment{
 	private static final String TAG = "NewTrack";
 	private Button new_submit;
 	private EditText field_new_name;
@@ -54,7 +55,7 @@ public class NewTrack extends Activity{
 									   .show();
 						
 					}else {
-						//µ÷ÓÃ´æ´¢½Ó¿Ú±£´æµ½Êý¾Ý¿â²¢Æô¶¯Service
+						//ï¿½ï¿½ï¿½Ã´æ´¢ï¿½Ó¿Ú±ï¿½ï¿½æµ½ï¿½ï¿½Ý¿â²¢ï¿½ï¿½ï¿½ï¿½Service
 						Long row_id = mDbHelper.createTrack(name, desc);
 						
 						Log.d(TAG, "row_id=" + row_id);

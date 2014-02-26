@@ -16,9 +16,11 @@ import android.database.Cursor;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -66,19 +68,32 @@ public class TrackListFragment extends ListFragment {
 		}
 	}
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		setTitle(R.string.title);
-		
-		mDbHelper = new TrackDbAdapter(this);
+				
+		mDbHelper = new TrackDbAdapter(getActivity().getApplicationContext());
 		mDbHelper.open();
 		
-		render_tracks();
+//		render_tracks();
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
+			Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.fragment_pager_list, container, false);
+	}
+	
+	@Override
+	public void onPause(){
+		/*The system calls this method as the first indication 
+		that the user is leaving the fragment (though it does 
+		not always mean the fragment is being destroyed). 
+		This is usually where you should commit any 
+		changes that should be persisted beyond the current 
+		user session (because the user might not come back).*/
+		
 	}
 
-
-	
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		Log.d(TAG, "onListItemClick.");
 		mCallback.onTrackSelected(position);

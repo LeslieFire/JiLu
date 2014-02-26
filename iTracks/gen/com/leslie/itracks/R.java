@@ -11,8 +11,8 @@ public final class R {
     public static final class array {
         /**  Used in View/setting.java 
          */
-        public static final int gps=0x7f0a0000;
-        public static final int map=0x7f0a0001;
+        public static final int gps=0x7f0b0000;
+        public static final int map=0x7f0b0001;
     }
     public static final class attr {
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -286,32 +286,32 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int vpiUnderlinePageIndicatorStyle=0x7f010004;
     }
     public static final class bool {
-        public static final int default_circle_indicator_centered=0x7f060000;
-        public static final int default_circle_indicator_snap=0x7f060001;
-        public static final int default_line_indicator_centered=0x7f060002;
-        public static final int default_title_indicator_selected_bold=0x7f060003;
-        public static final int default_underline_indicator_fades=0x7f060004;
+        public static final int default_circle_indicator_centered=0x7f070000;
+        public static final int default_circle_indicator_snap=0x7f070001;
+        public static final int default_line_indicator_centered=0x7f070002;
+        public static final int default_title_indicator_selected_bold=0x7f070003;
+        public static final int default_underline_indicator_fades=0x7f070004;
     }
     public static final class color {
-        public static final int default_circle_indicator_fill_color=0x7f050008;
-        public static final int default_circle_indicator_page_color=0x7f050009;
-        public static final int default_circle_indicator_stroke_color=0x7f05000a;
-        public static final int default_line_indicator_selected_color=0x7f05000b;
-        public static final int default_line_indicator_unselected_color=0x7f05000c;
-        public static final int default_title_indicator_footer_color=0x7f05000d;
-        public static final int default_title_indicator_selected_color=0x7f05000e;
-        public static final int default_title_indicator_text_color=0x7f05000f;
-        public static final int default_underline_indicator_selected_color=0x7f050010;
-        public static final int vpi__background_holo_dark=0x7f050000;
-        public static final int vpi__background_holo_light=0x7f050001;
-        public static final int vpi__bright_foreground_disabled_holo_dark=0x7f050004;
-        public static final int vpi__bright_foreground_disabled_holo_light=0x7f050005;
-        public static final int vpi__bright_foreground_holo_dark=0x7f050002;
-        public static final int vpi__bright_foreground_holo_light=0x7f050003;
-        public static final int vpi__bright_foreground_inverse_holo_dark=0x7f050006;
-        public static final int vpi__bright_foreground_inverse_holo_light=0x7f050007;
-        public static final int vpi__dark_theme=0x7f050011;
-        public static final int vpi__light_theme=0x7f050012;
+        public static final int default_circle_indicator_fill_color=0x7f060008;
+        public static final int default_circle_indicator_page_color=0x7f060009;
+        public static final int default_circle_indicator_stroke_color=0x7f06000a;
+        public static final int default_line_indicator_selected_color=0x7f06000b;
+        public static final int default_line_indicator_unselected_color=0x7f06000c;
+        public static final int default_title_indicator_footer_color=0x7f06000d;
+        public static final int default_title_indicator_selected_color=0x7f06000e;
+        public static final int default_title_indicator_text_color=0x7f06000f;
+        public static final int default_underline_indicator_selected_color=0x7f060010;
+        public static final int vpi__background_holo_dark=0x7f060000;
+        public static final int vpi__background_holo_light=0x7f060001;
+        public static final int vpi__bright_foreground_disabled_holo_dark=0x7f060004;
+        public static final int vpi__bright_foreground_disabled_holo_light=0x7f060005;
+        public static final int vpi__bright_foreground_holo_dark=0x7f060002;
+        public static final int vpi__bright_foreground_holo_light=0x7f060003;
+        public static final int vpi__bright_foreground_inverse_holo_dark=0x7f060006;
+        public static final int vpi__bright_foreground_inverse_holo_light=0x7f060007;
+        public static final int vpi__dark_theme=0x7f060011;
+        public static final int vpi__light_theme=0x7f060012;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -320,21 +320,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f08000d;
-        public static final int activity_vertical_margin=0x7f08000e;
-        public static final int default_circle_indicator_radius=0x7f080000;
-        public static final int default_circle_indicator_stroke_width=0x7f080001;
-        public static final int default_line_indicator_gap_width=0x7f080003;
-        public static final int default_line_indicator_line_width=0x7f080002;
-        public static final int default_line_indicator_stroke_width=0x7f080004;
-        public static final int default_title_indicator_clip_padding=0x7f080005;
-        public static final int default_title_indicator_footer_indicator_height=0x7f080007;
-        public static final int default_title_indicator_footer_indicator_underline_padding=0x7f080008;
-        public static final int default_title_indicator_footer_line_height=0x7f080006;
-        public static final int default_title_indicator_footer_padding=0x7f080009;
-        public static final int default_title_indicator_text_size=0x7f08000a;
-        public static final int default_title_indicator_title_padding=0x7f08000b;
-        public static final int default_title_indicator_top_padding=0x7f08000c;
+        public static final int activity_horizontal_margin=0x7f09000d;
+        public static final int activity_vertical_margin=0x7f09000e;
+        public static final int default_circle_indicator_radius=0x7f090000;
+        public static final int default_circle_indicator_stroke_width=0x7f090001;
+        public static final int default_line_indicator_gap_width=0x7f090003;
+        public static final int default_line_indicator_line_width=0x7f090002;
+        public static final int default_line_indicator_stroke_width=0x7f090004;
+        public static final int default_title_indicator_clip_padding=0x7f090005;
+        public static final int default_title_indicator_footer_indicator_height=0x7f090007;
+        public static final int default_title_indicator_footer_indicator_underline_padding=0x7f090008;
+        public static final int default_title_indicator_footer_line_height=0x7f090006;
+        public static final int default_title_indicator_footer_padding=0x7f090009;
+        public static final int default_title_indicator_text_size=0x7f09000a;
+        public static final int default_title_indicator_title_padding=0x7f09000b;
+        public static final int default_title_indicator_top_padding=0x7f09000c;
     }
     public static final class drawable {
         public static final int alert_dialog_icon=0x7f020000;
@@ -363,103 +363,101 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int vpi__tab_unselected_pressed_holo=0x7f020017;
     }
     public static final class id {
-        public static final int action_search=0x7f040011;
-        public static final int action_settings=0x7f040012;
-        public static final int add_page=0x7f040014;
-        public static final int created=0x7f04000f;
-        public static final int desc=0x7f040010;
-        public static final int map_fragment=0x7f04000b;
-        public static final int name=0x7f04000e;
-        public static final int new_desc=0x7f040005;
-        public static final int new_name=0x7f040004;
-        public static final int new_submit=0x7f040006;
-        public static final int none=0x7f040000;
-        public static final int pager=0x7f040003;
-        public static final int random=0x7f040013;
-        public static final int remove_page=0x7f040015;
-        public static final int row=0x7f04000d;
-        public static final int setting_gps=0x7f040008;
-        public static final int setting_map_level=0x7f040009;
-        public static final int setting_submit=0x7f04000a;
-        public static final int setting_tips=0x7f040007;
-        public static final int stop_track=0x7f04000c;
-        public static final int triangle=0x7f040001;
-        public static final int underline=0x7f040002;
+        public static final int action_search=0x7f05000d;
+        public static final int action_settings=0x7f05000e;
+        public static final int add_page=0x7f050010;
+        public static final int created=0x7f05000b;
+        public static final int desc=0x7f05000c;
+        public static final int map_fragment=0x7f050007;
+        public static final int name=0x7f05000a;
+        public static final int new_desc=0x7f050005;
+        public static final int new_name=0x7f050004;
+        public static final int new_submit=0x7f050006;
+        public static final int none=0x7f050000;
+        public static final int pager=0x7f050003;
+        public static final int random=0x7f05000f;
+        public static final int remove_page=0x7f050011;
+        public static final int row=0x7f050009;
+        public static final int stop_track=0x7f050008;
+        public static final int triangle=0x7f050001;
+        public static final int underline=0x7f050002;
     }
     public static final class integer {
-        public static final int default_circle_indicator_orientation=0x7f070000;
-        public static final int default_title_indicator_footer_indicator_style=0x7f070001;
-        public static final int default_underline_indicator_fade_delay=0x7f070002;
-        public static final int default_underline_indicator_fade_length=0x7f070003;
+        public static final int default_circle_indicator_orientation=0x7f080000;
+        public static final int default_title_indicator_footer_indicator_style=0x7f080001;
+        public static final int default_underline_indicator_fade_delay=0x7f080002;
+        public static final int default_underline_indicator_fade_length=0x7f080003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int helps=0x7f030001;
-        public static final int new_track=0x7f030002;
-        public static final int setting=0x7f030003;
+        public static final int fragment_pager_list=0x7f030001;
+        public static final int helps=0x7f030002;
+        public static final int new_track=0x7f030003;
         public static final int show_track=0x7f030004;
         public static final int track_row=0x7f030005;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int main=0x7f0d0000;
     }
     public static final class string {
         /**  Actions  
          */
-        public static final int action_search=0x7f0b0007;
-        public static final int action_settings=0x7f0b0008;
-        public static final int app_name=0x7f0b0005;
-        public static final int app_title=0x7f0b0006;
-        public static final int author=0x7f0b0025;
-        public static final int author_text=0x7f0b0003;
-        public static final int helps_infos=0x7f0b0024;
-        public static final int helps_text=0x7f0b0002;
-        public static final int menu_back=0x7f0b0012;
-        public static final int menu_con=0x7f0b000e;
-        public static final int menu_del=0x7f0b000f;
-        public static final int menu_exit=0x7f0b0013;
-        public static final int menu_helps=0x7f0b0011;
-        public static final int menu_main=0x7f0b000c;
-        public static final int menu_new=0x7f0b000d;
-        public static final int menu_setting=0x7f0b0010;
-        public static final int new_desc=0x7f0b0016;
-        public static final int new_fail=0x7f0b0019;
-        public static final int new_name=0x7f0b0015;
-        public static final int new_name_null=0x7f0b0018;
-        public static final int new_submit=0x7f0b0017;
+        public static final int action_search=0x7f0c0007;
+        public static final int action_settings=0x7f0c0008;
+        public static final int app_name=0x7f0c0005;
+        public static final int app_title=0x7f0c0006;
+        public static final int author=0x7f0c0027;
+        public static final int author_text=0x7f0c0003;
+        public static final int helps_infos=0x7f0c0026;
+        public static final int helps_text=0x7f0c0002;
+        public static final int menu_back=0x7f0c0012;
+        public static final int menu_con=0x7f0c000e;
+        public static final int menu_del=0x7f0c000f;
+        public static final int menu_exit=0x7f0c0013;
+        public static final int menu_helps=0x7f0c0011;
+        public static final int menu_main=0x7f0c000c;
+        public static final int menu_new=0x7f0c000d;
+        public static final int menu_setting=0x7f0c0010;
+        public static final int new_desc=0x7f0c0016;
+        public static final int new_fail=0x7f0c0019;
+        public static final int new_name=0x7f0c0015;
+        public static final int new_name_null=0x7f0c0018;
+        public static final int new_submit=0x7f0c0017;
         /** 新建跟踪界面
          */
-        public static final int new_tips=0x7f0b0014;
+        public static final int new_tips=0x7f0c0014;
         /**  tabs 
          */
-        public static final int past=0x7f0b0009;
-        public static final int preference=0x7f0b000a;
+        public static final int past=0x7f0c0009;
+        public static final int preference=0x7f0c000a;
         /**  地图展示 
          */
-        public static final int satellite=0x7f0b0026;
-        public static final int setting_fail=0x7f0b001f;
-        public static final int setting_gps=0x7f0b001b;
-        public static final int setting_map_level=0x7f0b001c;
-        public static final int setting_null=0x7f0b001e;
-        public static final int setting_ok=0x7f0b0020;
-        public static final int setting_submit=0x7f0b001d;
+        public static final int satellite=0x7f0c0028;
+        public static final int setting_fail=0x7f0c001f;
+        public static final int setting_gps=0x7f0c001b;
+        public static final int setting_gps_default=0x7f0c0023;
+        public static final int setting_gps_prompt=0x7f0c0021;
+        public static final int setting_map_default=0x7f0c0024;
+        public static final int setting_map_level=0x7f0c001c;
+        public static final int setting_map_prompt=0x7f0c0022;
+        public static final int setting_null=0x7f0c001e;
+        public static final int setting_ok=0x7f0c0020;
+        public static final int setting_submit=0x7f0c001d;
         /** 个人设置界面
          */
-        public static final int setting_tips=0x7f0b001a;
-        public static final int spinner_gps_prompt=0x7f0b0021;
-        public static final int spinner_map_prompt=0x7f0b0022;
-        public static final int start=0x7f0b0000;
+        public static final int setting_tips=0x7f0c001a;
+        public static final int start=0x7f0c0000;
         /**  stop service 
          */
-        public static final int stop_track=0x7f0b0029;
-        public static final int street=0x7f0b0028;
-        public static final int title=0x7f0b0004;
-        public static final int tracking=0x7f0b000b;
-        public static final int traffic=0x7f0b0027;
+        public static final int stop_track=0x7f0c002b;
+        public static final int street=0x7f0c002a;
+        public static final int title=0x7f0c0004;
+        public static final int tracking=0x7f0c000b;
+        public static final int traffic=0x7f0c0029;
         /** 帮助信息界面
          */
-        public static final int version=0x7f0b0023;
-        public static final int version_text=0x7f0b0001;
+        public static final int version=0x7f0c0025;
+        public static final int version_text=0x7f0c0001;
     }
     public static final class style {
         /** 
@@ -485,15 +483,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f090004;
+        public static final int AppBaseTheme=0x7f0a0004;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f090005;
-        public static final int TextAppearance_TabPageIndicator=0x7f090003;
-        public static final int Theme_PageIndicatorDefaults=0x7f090000;
-        public static final int Widget=0x7f090001;
-        public static final int Widget_TabPageIndicator=0x7f090002;
+        public static final int AppTheme=0x7f0a0005;
+        public static final int TextAppearance_TabPageIndicator=0x7f0a0003;
+        public static final int Theme_PageIndicatorDefaults=0x7f0a0000;
+        public static final int Widget=0x7f0a0001;
+        public static final int Widget_TabPageIndicator=0x7f0a0002;
+    }
+    public static final class xml {
+        public static final int preferences=0x7f040000;
     }
     public static final class styleable {
         /** Attributes that can be used with a CirclePageIndicator.

@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Menu;
@@ -17,40 +18,18 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class SettingFragment extends Fragment {
-	private static final String TAG = "Setting";
-	
-//����˵���Ҫ�ı���
-	private static final int MENU_MAIN = Menu.FIRST + 1;
-	private static final int MENU_NEW = MENU_MAIN + 1;
-	private static final int MENU_BACK = MENU_NEW + 1;
-	
-//������Ի����� 
-	public static final String SETTING_INFOS = "SETTING _Infos";
-	public static final String SETTING_GPS = "SETTING_Gps";
-	public static final String SETTING_MAP = "SETTING_Map";
-	public static final String SETTING_GPS_POSITION = "SETTING_Gps_p";
-	public static final String SETTING_MAP_POSITION = "SETTING_Map_p";
-	
-	private Button button_setting_submit;
-	private Spinner field_setting_gps;
-	private Spinner field_setting_map_level;
-	
+public class SettingFragment extends PreferenceFragment {
+	private static final String TAG = "Setting";	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.setting);
-		setTitle(R.string.menu_setting);
-		
-		findViews();
-		setListensers();
-		restorePrefs();
-		
+		//Load the preferences from an XML resource
+		addPreferencesFromResource(R.xml.preferences);		
 	}
 
-
+/*
 	private void restorePrefs() {
 		// TODO Auto-generated method stub
 				
@@ -164,6 +143,6 @@ public class SettingFragment extends Fragment {
 		Log.d(TAG, "on stop");
 		//save individual settings.
 		storePrefs();
-	}
+	}*/
 	
 }

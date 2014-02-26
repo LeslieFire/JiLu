@@ -41,8 +41,11 @@
     <string name="setting_null">个人设置不能为空.</string>
     <string name="setting_fail">个人设置失败.</string>
     <string name="setting_ok">个人设置成功.</string>
-   	<string name="spinner_gps_prompt">选择更新频率(秒)</string>
-   	<string name="spinner_map_prompt">选择地图默认等级</string>
+   	<string name="setting_gps_prompt">选择更新频率(秒)</string>
+   	<string name="setting_map_prompt">选择地图默认等级</string>
+   	<string name="setting_gps_default">5</string>
+   	<string name="setting_map_default">14</string>
+   	
   
       <!--帮助信息界面-->
     <string name="version"><b>版本信息：</b></string> 

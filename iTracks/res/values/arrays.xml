@@ -11,13 +11,12 @@
     </string-array>
     
     <string-array name="map">
-        <item>14</item>
-        <item>12</item>
-        <item>10</item>
         <item>8</item>
-        <item>6</item>
-        <item>4</item>
-        
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+                
     </string-array>
     
 </resources>

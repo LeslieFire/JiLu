@@ -7,21 +7,20 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.R;
-import android.R.bool;
-import android.R.integer;
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -31,10 +30,11 @@ import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 
-public class MainActivity extends Activity{
+public class MainActivity extends ActionBarActivity{
 
 	public final String TAG = "mainActivity";
 	public static String CONTINUE = "continue";
@@ -47,17 +47,24 @@ public class MainActivity extends Activity{
 	
 	private boolean isExist = false;
 	
+//	TabHost mTabHost;
 	ViewPager mViewPager;
 	TabsAdapter mTabsAdapter;
 	
 	protected void onCreate(Bundle savedInstanceState){
+		Log.d(TAG, "Main::onCreate");
 		super.onCreate(savedInstanceState);
 		
-		mViewPager = new ViewPager(this);
-		mViewPager.setId(R.id.pager);
-		setContentView(mViewPager);
+		/*		setContentView(R.layout.activity_main);
+		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+		mTabHost.setup();		
+		mViewPager = (ViewPager) findViewById(R.id.pager);*/
 		
-		final ActionBar bar = getActionBar();
+		mViewPager = new ViewPager(this);
+        mViewPager.setId(R.id.pager);
+        setContentView(mViewPager);
+		
+		final ActionBar bar = getSupportActionBar();
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
 		
@@ -82,7 +89,7 @@ public class MainActivity extends Activity{
 	}
 	
 	public static class TabsAdapter extends FragmentPagerAdapter
-    			implements ActionBar.TabListener, ViewPager.OnPageChangeListener, TrackList.OnTrackSelectedListener {
+    			implements ActionBar.TabListener, ViewPager.OnPageChangeListener, TrackListFragment.OnTrackSelectedListener {
 
 		private final Context mContext;
 	    private final ActionBar mActionBar;
@@ -99,16 +106,16 @@ public class MainActivity extends Activity{
 	            }
 	        }
  
-		public TabsAdapter(Activity activity, ViewPager pager) {
-	            super(activity.getFragmentManager());
+		public TabsAdapter(ActionBarActivity activity, ViewPager pager) {
+	            super(activity.getSupportFragmentManager());
 	            mContext = activity;
-	            mActionBar = activity.getActionBar();
+	            mActionBar = activity.getSupportActionBar();
 	            mViewPager = pager;
 	            mViewPager.setAdapter(this);
 	            mViewPager.setOnPageChangeListener(this);
 	        }
 
-		public void addTab(ActionBar.Tab tab, Class<?> clss, Bundle args) {
+		public void addTab(Tab tab, Class<?> clss, Bundle args) {
 			TabInfo info = new TabInfo(clss, args);
 			tab.setTag(info);
 			tab.setTabListener(this);
@@ -149,14 +156,13 @@ public class MainActivity extends Activity{
 
 
 		@Override
-		public void onTabReselected(Tab tab, android.app.FragmentTransaction ft) {
+		public void onTabReselected(Tab tab, FragmentTransaction ft) {
 			// TODO Auto-generated method stub
 						
 		}
 
-
 		@Override
-		public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
+		public void onTabSelected(Tab tab, FragmentTransaction ft) {
 			// TODO Auto-generated method stub
 			Object tag = tab.getTag();
 			for (int i=0; i<mTabs.size(); i++){
@@ -166,10 +172,14 @@ public class MainActivity extends Activity{
 			}
 		}
 
+		@Override
+		public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
+			// TODO Auto-generated method stub
+			
+		}
 
 		@Override
-		public void onTabUnselected(Tab arg0,
-				android.app.FragmentTransaction arg1) {
+		public void onTrackSelected(int position) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -208,30 +218,22 @@ public class MainActivity extends Activity{
 		
 	}
 	
-	public void onTrackSelected(int position) {
-		ShowTrackFragment showTrack = (ShowTrackFragment)
-				getSupportFragmentManager().findFragmentById(R.id.map_fragment);
-		
-		if (showTrack != null) {
-			//if in two-pane layout
-			//call a method in the showTrackFragment to update its content
-		} else {
-			//otherwise, in one-pane layout and must swap frags..
-			
-			//create fragment and give it an argument for the selected track
-			ShowTrackFragment newFragment = new ShowTrackFragment();
-			Bundle args = new Bundle();
-			args.putInt(ShowTrackFragment.TRACK_POSITION, position);
-			newFragment.setArguments(args);
-			
-			android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-			
-			transaction.replace(R.id.pager, newFragment);
-			transaction.addToBackStack(null);
-			
-			transaction.commit();
-		}
-	}
+//	public void onTrackSelected(int position) {
+////		ShowTrackFragment showTrack = (ShowTrackFragment)
+////				getSupportFragmentManager().findFragmentById(R.id.);
+//		
+//		if (showTrack != null) {
+//			//if in two-pane layout
+//			//call a method in the showTrackFragment to update its content
+//		} else {
+//			//otherwise, in one-pane layout and must swap frags..
+//			
+//			//create fragment and give it an argument for the selected track
+//			
+//			
+//			transaction.commit();
+//		}
+//	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event){

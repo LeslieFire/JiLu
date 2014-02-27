@@ -3,7 +3,6 @@ package com.leslie.itracks;
 
 import java.util.ResourceBundle;
 
-import android.R.integer;
 import android.app.Activity;
 import android.content.ClipData.Item;
 import android.content.res.Resources;
@@ -30,15 +29,15 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+//
+//import com.google.android.gms.maps.CameraUpdateFactory;
+//import com.google.android.gms.maps.GoogleMap;
+//import com.google.android.gms.maps.SupportMapFragment;
+//import com.google.android.gms.maps.model.LatLng;
+//import com.google.android.gms.maps.model.MarkerOptions;
+//import com.google.android.gms.maps.model.Polyline;
+//import com.google.android.gms.maps.model.PolylineOptions;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-import com.leslie.itracks.R.layout;
 
 
 public class ShowTrackFragment extends Fragment{
